@@ -1,0 +1,78 @@
+jobs:
+  build:
+    docker:
+      - image: cimg/node:16.8.0
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - cache-v4-{{ checksum "package.json" }}
+
+      - run:
+          name: Git reset source code
+          command: |
+            git reset --hard HEAD
+
+      - checkout
+
+      - run:
+          name: build
+          command: npm run build
+          environment:
+            NODE_OPTIONS: --max_old_space_size=4096
+
+      - save_cache:
+          key: cache-v4-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+            - package-lock.json
+            - yarn.lock
+            - .cromwell
+            - themes/store/.cromwell
+            - themes/blog/.cromwell
+
+      - run:
+          name: test server
+          command: npm run test:server
+          environment:
+            NODE_OPTIONS: --max_old_space_size=4096
+
+      - run:
+          name: test backend
+          command: npm run test:backend
+          environment:
+            NODE_OPTIONS: --max_old_space_size=4096
+
+      - run:
+          name: test core frontend
+          command: npm run test:frontend
+          environment:
+            NODE_OPTIONS: --max_old_space_size=4096
+
+      - run:
+          name: test admin panel
+          command: npm run test:admin
+          environment:
+            NODE_OPTIONS: --max_old_space_size=4096
+
+      - run:
+          name: test commerce toolkit
+          command: npm run test:commerce
+          environment:
+            NODE_OPTIONS: --max_old_space_size=4096
+
+      - run:
+          name: test cli
+          command: npm run test:cli
+          environment:
+            NODE_OPTIONS: --max_old_space_size=4096
+
+      - run:
+          name: test utils
+          command: npm run test:utils
+          environment:
+            NODE_OPTIONS: --max_old_space_size=4096

@@ -1,0 +1,51 @@
+{
+  "name": "@cromwell/cli",
+  "version": "2.1.13",
+  "keywords": [],
+  "license": "MIT",
+  "repository": "https://github.com/CromwellCMS/Cromwell",
+  "author": "Astrex LLC",
+  "bugs": {
+    "url": "https://github.com/CromwellCMS/Cromwell/issues"
+  },
+  "main": "build/cli.js",
+  "bin": {
+    "cromwell": "./bin/cromwell",
+    "crw": "./bin/cromwell"
+  },
+  "files": [
+    "build",
+    "bin",
+    "startup.js"
+  ],
+  "scripts": {
+    "build": "npx rollup -c",
+    "buildService": "node startup.js buildService",
+    "test": "npx --no-install jest",
+    "watch": "npx rollup -cw"
+  },
+  "dependencies": {
+    "fs-extra": "10.0.0",
+    "github-directory-downloader": "1.3.6",
+    "read-package-json-fast": "2.0.3",
+    "yargs": "17.1.1"
+  },
+  "devDependencies": {
+    "@cromwell/cms": "2.1.12",
+    "@cromwell/utils": "2.0.18",
+    "@rollup/plugin-commonjs": "20.0.0",
+    "@rollup/plugin-json": "4.1.0",
+    "@rollup/plugin-node-resolve": "13.0.4",
+    "@types/fs-extra": "9.0.12",
+    "@types/jest": "27.0.1",
+    "@types/node": "14.14.31",
+    "@types/yargs": "17.0.2",
+    "jest": "27.0.6",
+    "rollup": "2.56.2",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-ts-compiler": "1.0.18",
+    "ts-jest": "27.0.5",
+    "ts-node": "10.2.0",
+    "typescript": "4.3.5"
+  }
+}

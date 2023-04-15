@@ -1,0 +1,44 @@
+{
+  "name": "@cromwell/core",
+  "version": "2.0.13",
+  "description": "",
+  "license": "MIT",
+  "repository": "https://github.com/CromwellCMS/Cromwell",
+  "author": "Astrex LLC",
+  "bugs": {
+    "url": "https://github.com/CromwellCMS/Cromwell/issues"
+  },
+  "main": "dist/index.js",
+  "module": "es/_index.js",
+  "types": "es/_index.d.ts",
+  "files": [
+    "/dist",
+    "/es"
+  ],
+  "scripts": {
+    "build": "npx rollup -c",
+    "watch": "npx rollup -cw"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "tslib": "2.3.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "20.0.0",
+    "@rollup/plugin-node-resolve": "13.0.4",
+    "@types/react": "17.0.18",
+    "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.29.2",
+    "@typescript-eslint/parser": "4.29.2",
+    "eslint": "7.32.0",
+    "rollup": "2.56.2",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-ts-compiler": "1.0.18",
+    "typescript": "4.3.5"
+  },
+  "peerDependencies": {
+    "next": "12.0.7",
+    "typeorm": "0.2.37"
+  }
+}
